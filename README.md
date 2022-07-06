@@ -95,23 +95,6 @@ systemctl start docker
 systemctl enable docker
 ```
 
-#### 安装安装docker-compose
-```
-curl -fsSL https://get.docker.com | bash -s docker
-curl -L "https://github.com/docker/compose/releases/download/1.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-```
-
-#### 以Docker compose方式安装Xray
-```
-git clone https://github.com/newxrayr/XrayR-release
-cd XrayR-release
-```
-编辑配置文件config.yml后
-```
-docker-compose up -d
-```
-
 #### 以Docker run方式安装Xray
 ```
 docker pull newxrayr/xrayr:latest && docker run --restart=always --name xrayr -d -v ${PATH_TO_CONFIG}/config.yml:/etc/XrayR/config.yml --network=host newxrayr/xrayr:latest
